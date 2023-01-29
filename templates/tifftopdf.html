@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>TIFF to PDF</title>
+</head>
+<body>
+    <h1>TIFF to PDF</h1>
+    <form>
+        <input type="file" id="image" name="image">
+        <br>
+        <br>
+        <button type="button" onclick="convertToPDF()">Convert to PDF</button>
+    </form>
+    <br>
+    <div id="output"></div>
+    <script>
+        function convertToPDF() {
+            var image = document.getElementById("image").files[0];
+            var output = document.getElementById("output");
+            var formData = new FormData();
+            formData.append("image", image);
+            if(!image) {
+                output.innerHTML = "Please select an image";
+                return;
+            }
+            if(image.type != "image/tiff") {
+                output.innerHTML = "Image is not in TIFF format";
+                return;
+            }
+            if(image.size > 5000000) {
+                output.innerHTML = "Image size exceeds the limit of 5MB";
+                return;
+            }
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/api/tifftopdf", true);
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    output.innerHTML = "Image converted successfully";
+                }
+            };
+            xhr.send(formData);
+        }
+    </script>
+</body>
+</html>

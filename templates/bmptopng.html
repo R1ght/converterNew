@@ -5,13 +5,14 @@
 <body>
     <h1>BMP to PNG</h1>
     <form>
-        <input type="file" id="image" name="image">
+        <input type="file" id="image" name="image" accept="image/bmp">
         <br>
         <br>
         <button type="button" onclick="convertToPNG()">Convert to PNG</button>
     </form>
     <br>
     <div id="output"></div>
+    
     <script>
         function convertToPNG() {
             var image = document.getElementById("image").files[0];

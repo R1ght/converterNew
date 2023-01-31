@@ -5,7 +5,7 @@
 <body>
     <h1>PNG to JPG</h1>
     <form>
-        <input type="file" id="image" name="image">
+        <input type="file" id="image" name="image" accept="image/png">
         <br>
         <br>
         <button type="button" onclick="convertToJPG()">Convert to JPG</button>
@@ -35,6 +35,15 @@
             xhr.onreadystatechange = function() {
                 if(xhr.readyState === 4 && xhr.status === 200) {
                     output.innerHTML = "Image converted successfully";
+                    const response = xhr.response;
+                        const blob = new Blob([response], {type: 'image/jpg'});
+
+                        const url = URL.createObjectURL(blob);
+                        const link = document.createElement('a');
+                        link.href = url;
+                        link.download = 'converted_image.jpg';
+
+                        link.click();
                 }
             };
             xhr.send(formData);

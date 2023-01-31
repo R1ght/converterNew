@@ -54,7 +54,7 @@ def png_to_jpg():
     except Exception as e:
         return str(e), 500
     # Create response object with JPG image as attachment
-    response = Response(byte_io, content_type='image/jpeg')
+    response = Response(byte_io, content_type='image/jpg')
     response.headers.set('Content-Disposition', 'attachment', filename='converted_image.jpg')
     return response
 

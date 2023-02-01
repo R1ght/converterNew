@@ -68,3 +68,13 @@ create a route "/api/bmptopng" with POST method. take the image from parameter a
 create a route "/api/pngtopdf" with POST method. take the image from parameter and convert into PDF. Make response object with image as attachment and return it. dont save image on server
 
 create a route "/api/tifftopdf" with POST method. take the image from parameter and convert into PDF. Make response object with image as attachment and return it. dont save image on server
+
+
+const response = xhr.response;
+                        const blob = new Blob([response], {type: 'image/jpg'});
+                        const url = URL.createObjectURL(blob);
+                        const link = document.createElement('a');
+                        link.href = url;
+                        link.download = 'converted_image.jpg';
+
+                        link.click();

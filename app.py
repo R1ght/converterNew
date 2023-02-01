@@ -45,12 +45,12 @@ def png_to_jpg():
     if 'image/png' not in image.content_type:
         return "File is not a PNG image", 400
     try:
-        # Open image and convert it to JPG
+        #Open image and convert it to JPG
         img = Image.open(image)
         jpg_img = img.convert('RGB')
         byte_io = BytesIO()
         jpg_img.save(byte_io, format='JPEG')
-        byte_io.seek(0)
+        byte_io.seek(0)        
     except Exception as e:
         return str(e), 500
     # Create response object with JPG image as attachment

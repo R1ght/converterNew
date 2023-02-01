@@ -18,26 +18,31 @@
             var output = document.getElementById("output");
             var formData = new FormData();
             formData.append("image", image);
-            if(!image) {
+            if (!image) {
                 output.innerHTML = "Please select an image";
                 return;
             }
-            if(image.type != "image/webp") {
+            if (image.type !== "image/webp") {
                 output.innerHTML = "Image is not in WEBP format";
                 return;
             }
-            if(image.size > 5000000) {
+            if (image.size > 5000000) {
                 output.innerHTML = "Image size exceeds the limit of 5MB";
                 return;
             }
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/api/webptopng", true);
-            xhr.onreadystatechange = function() {
-                if(xhr.readyState === 4 && xhr.status === 200) {
+            fetch('/api/webptopng', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
                     output.innerHTML = "Image converted successfully";
-                }
-            };
-            xhr.send(formData);
+                })
+                .catch(error => {
+                    output.innerHTML = "An error occured: " + error;
+                });
         }
     </script>
 </body>

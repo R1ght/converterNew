@@ -1,17 +1,23 @@
+<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free online image converter. Convert your images between popular formats such as JPG, PNG, BMP, WEBP, TIFF, and PDF. Fast, reliable, and easy to use.">
     <title>Image Converter</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+          crossorigin="anonymous">
     <style>
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #F5F5F5;
+            justify-content: center;
+            background-color: #ffffff;
             height: 100vh;
         }
-        h1 {
-            margin-top: 50px;
+        h1, h4 {
+            text-align: center;
         }
         ul {
             list-style: none;
@@ -19,15 +25,16 @@
             flex-wrap: wrap;
             justify-content: center;
             margin-top: 50px;
+            padding: 0;
         }
         li {
-            margin: 20px;
+            margin: 10px;
         }
         a {
             text-decoration: none;
             padding: 20px 40px;
             background-color: #007BFF;
-            color: white;
+            color: rgb(255, 255, 255);
             border-radius: 5px;
             transition: all 0.2s ease-in-out;
         }
@@ -41,13 +48,21 @@
 <body>
     <div class="container">
         <h1>Image Converter</h1>
+        <h4>Welcome to our free online image converter! With our tool, you can easily convert your images from 
+            one format to another, without having to install any software on your computer. Our website supports 
+            popular image formats such as JPG, PNG, BMP, WEBP, TIFF, and PDF, making it easy for you to switch 
+            between them as needed. Simply choose the conversion type you need, upload your image, and wait for 
+            the conversion to complete. Our tool is fast, reliable, and easy to use, making it a great choice for 
+            anyone who needs to convert images quickly and efficiently. Try it out today and see how easy image 
+            conversion can be!
+        </h4>
         <ul>
-            <li><a href="/jpgtopng">JPG to PNG converter</a></li>
-            <li><a href="/pngtojpg">PNG to JPG converter</a></li>
-            <li><a href="/webptopng">WEBP to PNG converter</a></li>
-            <li><a href="/bmptopng">BMP to PNG converter</a></li>
-            <li><a href="/pngtopdf">PNG to PDF converter</a></li>
-            <li><a href="/tifftopdf">TIFF to PDF converter</a></li>
+            <li><a href="/jpgtopng" class="btn btn-primary">JPG to PNG converter</a></li>
+            <li><a href="/pngtojpg" class="btn btn-primary">PNG to JPG converter</a></li>
+            <li><a href="/webptopng" class="btn btn-primary">WEBP to PNG converter</a></li>
+            <li><a href="/bmptopng" class="btn btn-primary">BMP to PNG converter</a></li>
+            <li><a href="/pngtopdf" class="btn btn-primary">PNG to PDF converter</a></li>
+            <li><a href="/tifftopdf" class="btn btn-primary">TIFF to PDF converter</a></li>
         </ul>
     </div>
 </body>
